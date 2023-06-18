@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 
 @Controller
 public class UserController {
@@ -24,24 +23,24 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String allusers(Model model) {
         model.addAttribute("users", userService.findAll());
         return "/allusers";
     }
 
-    @RequestMapping("users/{id}")
+    @GetMapping("users/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
         return "/show";
     }
 
-    @RequestMapping("/new")
+    @GetMapping("/new")
     public String newPerson(@ModelAttribute("user") User user) {
         return "/new";
     }
 
-    @RequestMapping("/users")
+    @PostMapping("/users")
     public String create(@Valid @ModelAttribute("user") User user,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
@@ -51,13 +50,13 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping("users/{id}/edit")
+    @GetMapping("users/{id}/edit")
     public String edit(Model model, @PathVariable("id") Long id) {
         model.addAttribute("user", userService.findById(id));
         return "/edit";
     }
 
-    @RequestMapping("{id}/update")
+    @PatchMapping("{id}/update")
     public String update(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,
                          @PathVariable("id") long id) {
         if (bindingResult.hasErrors())
@@ -67,7 +66,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping("users/{id}/delete")
+    @DeleteMapping("users/{id}/delete")
     public String delete(@PathVariable("id") Long id) {
         userService.deleteById(id);
         return "redirect:/";
