@@ -1,8 +1,9 @@
 package com.example.myapp.model;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -19,16 +20,17 @@ public class User {
     private long id;
 
     @NotBlank(message = "Field cant be empty")
-    @Column(name = "name")
+  //  @Column(name = "name")
     private String name;
 
     @Min(value = 0, message = "It must be number more than 0")
     @Max(value = 100, message = "It must be number less than 100")
-    @Column(name = "age")
+  //  @Column(name = "age")
     private byte age;
 
-    @Column(name = "surname")
+  //  @Column(name = "surname")
     @NotBlank(message = "Field cant be empty")
     private String surname;
+
 
 }
