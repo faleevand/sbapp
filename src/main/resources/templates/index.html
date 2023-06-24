@@ -16,10 +16,14 @@
 	<!--		<h3><a th:href="@{/users}">List of Users</a></h3>-->
 	<h3><a th:href="@{/new}">Register</a></h3>
 	<h3><a th:href="@{/login}">Login</a></h3>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout"/>
+	</form>
 </div>
-<form th:action="@{/logout}" method="post">
-	<input type="submit" value="Logout"/>
-</form>
 </body>
 </html>
 <!--<!DOCTYPE html>-->

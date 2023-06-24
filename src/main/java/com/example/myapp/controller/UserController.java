@@ -26,7 +26,11 @@ public class UserController {
         this.userService = userService;
     }
 
-
+    @GetMapping("/")
+    public String welcomePage() {
+        // model.addAttribute("users", userService.allUsers());
+        return "index";
+    }
 
     @GetMapping("/admin")
     public String allUsers(Model model) {
@@ -102,11 +106,7 @@ public class UserController {
 //        return "regsuccess";
 //    }
 
-    //    @GetMapping("/")
-//    public String allusers() {
-//       // model.addAttribute("users", userService.allUsers());
-//        return "index";
-//    }
+
     //    @GetMapping("users/{id}/edit")
 //    public String edit(Model model, @PathVariable() Long id) {
 //        model.addAttribute("user", userService.findUserById(id));

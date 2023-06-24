@@ -8,7 +8,7 @@
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="container text-center">
 <form th:method="POST" th:action="@{/user}" th:object="${user}">
     <label for="username">Enter username: </label>
     <br>
@@ -36,6 +36,6 @@
     <br/>
     <input type="submit" value="Create!"/>
 </form>
-
+</div>
 </body>
 </html>

@@ -1,16 +1,35 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--Good buy!-->
+
+
+<!--<div class="container text-center">-->
+<!--    <h3><a th:href="@{/new}">Register</a></h3>-->
+<!--    <h3><a th:href="@{/login}">Login</a></h3>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="ISO-8859-1">
+    <title>Logout Success</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
-  Good buy!
-
-
 <div class="container text-center">
-    <h3><a th:href="@{/new}">Register</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
+    <h3>You have logout!</h3>
+        <h4><a th:href="@{/new}">Register</a></h4>
+        <h4><a th:href="@{/login}">Login</a></h4>
+<!--    <h4><a th:href="@{/login}">Click here to Login</a></h4>-->
 </div>
+
 </body>
 </html>
