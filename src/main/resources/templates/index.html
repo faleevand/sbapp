@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Allusers</title>
+	<meta charset="ISO-8859-1">
+	<title>Welcome</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div th:each="user : ${users}">
-    <a th:href="@{/users/{id}(id=${user.getId()})}"
-       th:text="${user.getName() + ', ' + user.getSurname() + ', ' + user.getAge()}">user</a>
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--	Welcome <b>[[${#request.userPrincipal.principal.username}]]</b>-->
+<!--</div>-->
+<div class="container text-center">
+	<h1>Welcome!!!</h1>
+	<!--		<h3><a th:href="@{/users}">List of Users</a></h3>-->
+	<h3><a th:href="@{/new}">Register</a></h3>
+	<h3><a th:href="@{/login}">Login</a></h3>
 </div>
-
-<br/>
-<hr/>
-
-<a href="/new">Create new user</a>
-
+<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Logout"/>
+</form>
 </body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--	<meta charset="ISO-8859-1">-->
+<!--	<title>Welcome to CodeJava Home</title>-->
+<!--	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />-->
+<!--	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>-->
+<!--	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container text-center">-->
+<!--	<h1>Welcome to CodeJava.net</h1>-->
+<!--	&lt;!&ndash;  <h3><a th:href="@{/users}">List of Users</a></h3>&ndash;&gt;-->
+<!--	&lt;!&ndash;  <h3><a th:href="@{/register}">Register</a></h3>&ndash;&gt;-->
+<!--	&lt;!&ndash;  <h3><a th:href="@{/login}">Login</a></h3>&ndash;&gt;-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->

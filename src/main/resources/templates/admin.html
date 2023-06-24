@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Allusers</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+                 Welcome <b>[[${#request.userPrincipal.principal.username}]]</b>
+
+<!--<div th:each="user : ${users}">-->
+<!--    <a th:href="@{/users/{id}(id=${user.getId()})}"-->
+<!--       th:text="${user.getUsername() + ', ' + user.getSurname() + ', ' + user.getAge()}">user</a>-->
+<!--</div>-->
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Password</th>
+
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Roles</th>
+        <th>Options</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.id}">User ID</td>
+        <td th:text="${user.username}">Username</td>
+        <td th:text="${user.password}">Password</td>
+        <td th:text="${user.surname}">Surname</td>
+        <td th:text="${user.age}">Age</td>
+        <td th:text="${user.roles}">Roles</td>
+        <td>
+            <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
+
+            <form th:method="DELETE" th:action="@{/users/{id}/delete(id=${user.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<hr/>
+
+<a href="/new">Create new user</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+</form>
+
+</body>
+</html>

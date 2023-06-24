@@ -3,16 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<p th:text="${'Name: ' + user.getName() + ', ' + 'Surname: ' + user.getSurname() }">VALUE</p>
-<p th:text="${'Age: ' + user.getAge()}">VALUE</p>
-<p th:text="${user.getId()}">VALUE</p>
+<div class="container text-center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Welcome <b>[[${#request.userPrincipal.principal.username}]]</b>
+            </p>
+            <input type="submit" value="Log Out"/>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+<!--<p th:text="${'Name: ' + user.getUsername() + ', ' + 'Surname: ' + user.getSurname() }">VALUE</p>-->
+<!--<p th:text="${'Age: ' + user.getAge()}">VALUE</p>-->
+<!--<p th:text="${'Role: ' + user.getRoles()}">VALUE</p>-->
+<!--<p th:text="${user.getId()}">VALUE</p>-->
 
-<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Password</th>
 
-<form th:method="DELETE" th:action="@{/users/{id}/delete(id=${user.getId()})}">
-    <input type="submit" value="Delete"/>
-</form>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Roles</th>
+
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--    <tr th:each="user: ${users}">-->
+    <td th:text="${user.getId()}">User ID</td>
+    <td th:text="${user.username}">Usename</td>
+    <td th:text="${user.password}">Password</td>
+    <td th:text="${user.surname}">Surname</td>
+    <td th:text="${user.age}">Age</td>
+    <td th:text="${user.roles}">Roles</td>
+
+    <!--    </tr>-->
+    </tbody>
+</table>
+
+
+<!--<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>-->
+
+<!--<form th:method="DELETE" th:action="@{/users/{id}/delete(id=${user.getId()})}">-->
+<!--    <input type="submit" value="Delete"/>-->
+
+<!--</form>-->
+<!--<form th:action="@{/logout}" method="post">-->
+<!--    <input type="submit" value="Logout" />-->
+<!--</form>-->
 </body>
 </html>
