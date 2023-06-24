@@ -66,7 +66,7 @@ public class UserController {
         List<Role> listRoles = userService.listRoles();
         model.addAttribute("user", user);
         model.addAttribute("listRoles", listRoles);
-        return "userEdit";
+        return "userEditAdmin";
     }
 
     @PostMapping("users/save")
