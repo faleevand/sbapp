@@ -5,6 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
@@ -12,23 +14,28 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "u_user")
+
+
+@Table(name = "u_user", uniqueConstraints= @UniqueConstraint(columnNames={"username"}))
+
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 2, message = "Не меньше 5 знаков")
+    @Size(min = 6, message = "Не меньше 6 знаков")
     private String username;
 
-    @Size(min = 2, message = "Не меньше 5 знаков")
+    @Size(min = 6, message = "Не меньше 6 знаков")
     private String password;
 
     private String surname;
 
-    private int age;
+    @Min(value = 1)
+    @Max(value = 100)
+    private byte age;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Role> roles;
 
 
@@ -66,6 +73,13 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "roles=" + roles +
+                '}';
     }
 
 

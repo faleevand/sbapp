@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>[[${#request.userPrincipal.principal.username}]] [[${#request.userPrincipal.principal.surname}]]
+                with roles:[[${#request.userPrincipal.principal.roles}]]
+            </th>
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </th>
+
+
+        </tr>
+        </thead>
+    </table>
+    <div class="row">
+        <div class="col-md-12 bg-light">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"> User </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-md-10 bg-light">
+            <h1>Admin panel</h1>
+
+            <table class="table table-striped table-bordered bg-white">
+                <thead>
+                <head>
+                    <h3>About user</h3>
+                </head>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+
+                    <th>Surname</th>
+                    <th>Age</th>
+                    <th>Roles</th>
+
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <td th:text="${user.getId()}">User ID</td>
+                <td th:text="${user.username}">Usename</td>
+                <td th:text="${user.password}">Password</td>
+                <td th:text="${user.surname}">Surname</td>
+                <td th:text="${user.age}">Age</td>
+                <td th:text="${user.roles}">Roles</td>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
