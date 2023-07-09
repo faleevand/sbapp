@@ -25,7 +25,7 @@ public class UserController {
         System.out.println(user);
         User userbyname = userService.findByUsername(user);
         model.addAttribute("user", userbyname);
-        return "show2";
+        return "show3";
     }
 
     @GetMapping("/logt")

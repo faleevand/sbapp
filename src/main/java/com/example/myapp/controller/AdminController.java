@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 
 @Controller
@@ -27,16 +28,28 @@ public class AdminController {
         this.userService = userService;
     }
 
+
+
     @GetMapping("/admin")
-    public String test2(Model model) {
-        model.addAttribute("users", userService.allUsers());
-        return "index3";
+    public String welcomePage() {
+        return "indexRest";
     }
 
-    @GetMapping("/")
-    public String welcomePage() {
-        return "index";
-    }
+
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------
+
+//Контроллеры из предыдущего задания. Не используются.
+
+
 
     @GetMapping("/test")
     public String allUsers(Model model) {
