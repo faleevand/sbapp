@@ -211,7 +211,7 @@ async function editUser(modal, id) {
             modal.modal('hide');
         } else {
             let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="sharaBaraMessageError">
+            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="Error">
                             ${body.info}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -297,7 +297,7 @@ async function createUser() {
             addUserForm.find('#newuserAge').val('');
         } else {
             let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="sharaBaraMessageError">
+            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="Error">
                             ${body.info}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
